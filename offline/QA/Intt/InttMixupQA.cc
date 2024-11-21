@@ -523,7 +523,7 @@ int InttMixupQA::End(PHCompositeNode * /*topNode*/)
  
 }
 
-int InttMixupQA::EndRun(PHCompositeNode * /*topNode*/)
+int InttMixupQA::EndRun(int const)
 {
   cout<<"EndRun"<<endl;
   return Fun4AllReturnCodes::EVENT_OK;
