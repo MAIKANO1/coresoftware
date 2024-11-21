@@ -53,19 +53,19 @@ class bcocheck : public SubsysReco {
  public:
   explicit bcocheck(const std::string &name = "bcocheck", const int run_num=0,const int felix_num=0);
 
-  virtual ~bcocheck();
+  virtual ~bcocheck() = default;
 
-  int Init(PHCompositeNode *);
+  int Init(PHCompositeNode *) override;
   
-  int InitRun(PHCompositeNode *);
+  int InitRun(PHCompositeNode *) override;
   
   /// SubsysReco event processing method
-  int process_event(PHCompositeNode *);
+  int process_event(PHCompositeNode *) override;
 
   /// SubsysReco end processing method
-  int EndRun(PHCompositeNode *);
+  int EndRun(int const) override;
 
-  int End(PHCompositeNode *);
+  int End(PHCompositeNode *) override;
 
   //int SetHistBin(std::string type);
  private:
@@ -81,7 +81,7 @@ class bcocheck : public SubsysReco {
   static const int divimul=10;
 
   int ievent_ = 0;
-  int n=kFelix_num_;
+  // int n=kFelix_num_;
   TFile* tf_output_[kFelix_num_] = {};
 
   TH1D *h_full_bco[kFelix_num_] = {};
